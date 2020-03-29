@@ -8,4 +8,11 @@ class MathTest {
     fun addition_isCorrect() {
         Assert.assertEquals(4, 2 + 2)
     }
+
+    @Test
+    fun divideTest() {
+        var i = 4
+        i /= 2
+        Assert.assertEquals(2, i)
+    }
 }
