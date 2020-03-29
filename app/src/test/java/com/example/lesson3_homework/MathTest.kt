@@ -15,4 +15,11 @@ class MathTest {
         i += 1
         Assert.assertEquals(2, i)
     }
+
+    @Test
+    fun divideTest() {
+        var i = 4
+        i /= 2
+        Assert.assertEquals(2, i)
+    }
 }
