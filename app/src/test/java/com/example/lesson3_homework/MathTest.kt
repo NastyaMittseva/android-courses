@@ -22,4 +22,11 @@ class MathTest {
         i /= 2
         Assert.assertEquals(2, i)
     }
+
+    @Test
+    fun multiplyTest() {
+        var i = 1
+        i *= 2
+        Assert.assertEquals(2, i)
+    }
 }
