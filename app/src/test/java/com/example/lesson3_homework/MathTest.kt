@@ -8,4 +8,11 @@ class MathTest {
     fun addition_isCorrect() {
         Assert.assertEquals(4, 2 + 2)
     }
+
+    @Test
+    fun incrementTest() {
+        var i = 1
+        i += 1
+        Assert.assertEquals(2, i)
+    }
 }
