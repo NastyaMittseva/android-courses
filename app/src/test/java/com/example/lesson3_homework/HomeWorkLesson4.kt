@@ -8,10 +8,12 @@ class HomeWorkLesson4 {
 
         val iphoneCase = Product(price = 123.0, salePercent = 10)
 
-        val pricePrinter: PricePrinter = SimplePricePrinter()
+        val pricePrinterInRubles: PricePrinter = PriceInRubles()
+        val pricePrinterInDollars: PricePrinter = PriceInDollars()
 
         val discountIphoneCasePrice = iphoneCase.calcDiscountPrice()
-        pricePrinter.print(discountIphoneCasePrice)
+        pricePrinterInRubles.print(discountIphoneCasePrice)
+        pricePrinterInDollars.print(discountIphoneCasePrice)
     }
 }
 
@@ -33,21 +35,33 @@ class Product (
 
 interface PricePrinter {
     /**
-     * Outputs price in <PRICE>P format.
-     * If price have not fractional part than it will be printed as integer
+     * Accepts the price in rubles.
+     * Outputs price in <PRICE> <currency> format.
+     * If price have not fractional part than it will be printed as integer.
      * If price have fractional part than it will be rounded for 2 symbols after "."
      */
     fun print(price: Double)
 }
 
-class SimplePricePrinter : PricePrinter{
+class PriceInRubles : PricePrinter{
     override fun print(price: Double) {
-        val newPrice:String 
-        newPrice = if (price % 1 == 0.0) {
+        val stringPrice: String = if (price % 1 == 0.0) {
             price.toInt().toString()
         } else {
             String.format("%.2f", price)
         }
-        print("$newPrice P")
+        println("$stringPrice P ")
+    }
+}
+
+class PriceInDollars : PricePrinter{
+    override fun print(price: Double) {
+        val dollars = price*0.013
+        val stringPrice:String = if (dollars % 1 == 0.0) {
+            dollars.toInt().toString()
+        } else {
+            String.format("%.2f", dollars)
+        }
+        println("$stringPrice $ ")
     }
 }
