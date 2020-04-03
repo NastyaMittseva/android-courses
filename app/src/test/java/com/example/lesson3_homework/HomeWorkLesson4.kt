@@ -8,8 +8,8 @@ class HomeWorkLesson4 {
 
         val iphoneCase = Product(price = 123.0, salePercent = 10)
 
-        val pricePrinterInRubles: PricePrinter = PriceInRubles()
-        val pricePrinterInDollars: PricePrinter = PriceInDollars()
+        val pricePrinterInRubles: PricePrinter = PricePrinterInRubles()
+        val pricePrinterInDollars: PricePrinter = PricePrinterInDollars()
 
         val discountIphoneCasePrice = iphoneCase.calcDiscountPrice()
         pricePrinterInRubles.print(discountIphoneCasePrice)
@@ -43,18 +43,18 @@ interface PricePrinter {
     fun print(price: Double)
 }
 
-class PriceInRubles : PricePrinter{
+class PricePrinterInRubles : PricePrinter{
     override fun print(price: Double) {
         val stringPrice: String = if (price % 1 == 0.0) {
             price.toInt().toString()
         } else {
             String.format("%.2f", price)
         }
-        println("$stringPrice P ")
+        println("$stringPrice P")
     }
 }
 
-class PriceInDollars : PricePrinter{
+class PricePrinterInDollars : PricePrinter{
     override fun print(price: Double) {
         val dollars = price*0.013
         val stringPrice:String = if (dollars % 1 == 0.0) {
@@ -62,6 +62,6 @@ class PriceInDollars : PricePrinter{
         } else {
             String.format("%.2f", dollars)
         }
-        println("$stringPrice $ ")
+        println("$stringPrice $")
     }
 }
