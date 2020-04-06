@@ -7,8 +7,9 @@ class HomeWorkLesson5 {
     fun example() {
         val iphoneCase = Product(price = 155.0, salePercent = 20)
         val samsungCase = Product(price = 123.0, salePercent = 30)
+        val asusCase = Product(price = 138.0, salePercent = 10)
 
-        val productList: List<Product> = listOf(iphoneCase, samsungCase)
+        val productList: List<Product> = listOf(iphoneCase, samsungCase, asusCase)
         val basket = Basket(productList)
         val totalCasePrice = basket.calcTotalDiscountPrice()
 
