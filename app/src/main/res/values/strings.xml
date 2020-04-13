@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">lesson3_homework</string>
+    <string name="checkout_header">Оформление заказа</string>
+    <string name="checkout_price">Цена без скидки</string>
+    <string name="checkout_discount">Скидка</string>
+    <string name="checkout_sum">Итоговая цена</string>
+    <string name="checkout_pay">Оплатить</string>
 </resources>

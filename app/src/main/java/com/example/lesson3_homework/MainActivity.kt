@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity(), BasketView {
     }
 
     override fun print(prices: String) {
-        Toast.makeText(this, "$prices", Toast.LENGTH_LONG).show()
-//        Log.d("Print", "$prices")
+//        Toast.makeText(this, "$prices", Toast.LENGTH_LONG).show()
+        Log.d("Print", "$prices")
     }
 }
