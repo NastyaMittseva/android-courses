@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/checkout_header"
-        android:textColor="#000"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -47,11 +47,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:text="100"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkoutPrice"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkoutPrice" />
+        app:layout_constraintTop_toTopOf="@+id/checkoutPrice"
+        tools:text="100" />
 
     <TextView
         android:id="@+id/checkoutDiscount"
@@ -66,16 +66,16 @@
         app:layout_constraintTop_toBottomOf="@+id/checkoutPrice" />
 
     <TextView
-        android:id="@+id/checkoutDiscountPrice"
+        android:id="@+id/checkoutDiscountValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:text="10"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkoutDiscount"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkoutDiscount" />
+        app:layout_constraintTop_toTopOf="@+id/checkoutDiscount"
+        tools:text="10" />
 
     <TextView
         android:id="@+id/checkoutSumValue"
@@ -83,11 +83,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:text="90"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/checkoutSum"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkoutSum" />
+        app:layout_constraintTop_toTopOf="@+id/checkoutSum"
+        tools:text="90" />
 
     <TextView
         android:id="@+id/checkoutSum"
@@ -161,7 +161,7 @@
         android:layout_marginBottom="8dp"
         android:background="@color/colorPrimary"
         android:text="@string/checkout_pay"
-        android:textColor="#FFF"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
