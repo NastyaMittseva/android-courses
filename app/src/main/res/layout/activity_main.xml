@@ -102,28 +102,28 @@
         app:layout_constraintTop_toBottomOf="@+id/checkoutDiscount" />
 
     <EditText
-        android:id="@+id/chechoutPersonFamily"
+        android:id="@+id/chechoutPersonSecondName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="Фамилия"
+        android:hint="@string/checkout_secondName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkoutSum" />
 
     <EditText
-        android:id="@+id/checkoutPersonName"
+        android:id="@+id/checkoutPersonFirstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Имя"
+        android:hint="@string/checkout_firstName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chechoutPersonFamily" />
+        app:layout_constraintTop_toBottomOf="@+id/chechoutPersonSecondName" />
 
     <EditText
         android:id="@+id/buttonPersonMiddleName"
@@ -131,11 +131,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Отчество"
+        android:hint="@string/checkout_middleName"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkoutPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/checkoutPersonFirstName" />
 
     <EditText
         android:id="@+id/checkoutPhone"
@@ -143,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Телефон"
+        android:hint="@string/checkout_phone"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

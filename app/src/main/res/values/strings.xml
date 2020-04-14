@@ -5,4 +5,8 @@
     <string name="checkout_discount">Скидка</string>
     <string name="checkout_sum">Итоговая цена</string>
     <string name="checkout_pay">Оплатить</string>
+    <string name="checkout_phone">Телефон</string>
+    <string name="checkout_middleName">Отчество</string>
+    <string name="checkout_firstName">Имя</string>
+    <string name="checkout_secondName">Фамилия</string>
 </resources>
