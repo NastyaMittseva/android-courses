@@ -9,4 +9,5 @@
     <string name="checkout_middleName">Отчество</string>
     <string name="checkout_firstName">Имя</string>
     <string name="checkout_secondName">Фамилия</string>
+    <string name="checkout_phoneHelp">89999999999 или +79999999999</string>
 </resources>
