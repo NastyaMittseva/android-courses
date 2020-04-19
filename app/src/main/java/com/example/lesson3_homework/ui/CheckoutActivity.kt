@@ -1,18 +1,25 @@
-package com.example.lesson3_homework
+package com.example.lesson3_homework.ui
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.EditText
-import android.widget.Toast
+import com.example.lesson3_homework.BasketPresenter
+import com.example.lesson3_homework.BasketView
+import com.example.lesson3_homework.R
+import com.example.lesson3_homework.ui.CatalogActivity.Companion.IS_USER_AUTH
+import com.example.lesson3_homework.ui.CatalogActivity.Companion.PRODUCT_ID
+import com.example.lesson3_homework.ui.CatalogActivity.Companion.REQUEST_AUTH
+import com.example.myapplication.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), BasketView {
-    private val presenter = BasketPresenter()
 
+class CheckoutActivity : BaseActivity(), BasketView {
+    private val presenter = BasketPresenter()
+    private var isAuth:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -24,6 +31,19 @@ class MainActivity : AppCompatActivity(), BasketView {
         checkoutPriceValue.text="100"
         checkoutDiscountValue.text="10"
         checkoutSumValue.text="90"
+
+        val productID = intent.extras?.getInt(PRODUCT_ID, -1)
+        Log.d(tag, productID.toString())
+
+        checkoutPayButton.setOnClickListener(){
+            isAuth = true
+            setResult(REQUEST_AUTH, Intent().apply{
+                putExtra(IS_USER_AUTH, isAuth)
+            })
+        }
+        checkoutBackBtn.setOnClickListener(){
+            finish()
+        }
     }
 
     private fun setListeners(){

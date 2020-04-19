@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lesson3_homework</string>
+    <string name="app_name">Магазин</string>
     <string name="checkout_header">Оформление заказа</string>
     <string name="checkout_price">Цена без скидки</string>
     <string name="checkout_discount">Скидка</string>
@@ -10,4 +10,10 @@
     <string name="checkout_firstName">Имя</string>
     <string name="checkout_secondName">Фамилия</string>
     <string name="checkout_phoneHelp">89999999999 или +79999999999</string>
+    <string name="basket_header">Корзина</string>
+    <string name="catalog_header">Каталог</string>
+    <string name="catalog_checkoutBtn">Оформить заказ</string>
+    <string name="catalog_productBtn">Информация о продукте</string>
+    <string name="catalog_basketBtn">Корзина</string>
+    <string name="product_header">Информация о продукте</string>
 </resources>
