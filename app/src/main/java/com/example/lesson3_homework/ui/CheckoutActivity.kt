@@ -1,14 +1,12 @@
 package com.example.lesson3_homework.ui
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import com.example.lesson3_homework.BasketPresenter
-import com.example.lesson3_homework.BasketView
+import com.example.lesson3_homework.CheckoutPresenter
 import com.example.lesson3_homework.R
 import com.example.lesson3_homework.ui.CatalogActivity.Companion.IS_USER_AUTH
 import com.example.lesson3_homework.ui.CatalogActivity.Companion.PRODUCT_ID
@@ -17,8 +15,9 @@ import com.example.myapplication.ui.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class CheckoutActivity : BaseActivity(), BasketView {
-    private val presenter = BasketPresenter()
+class CheckoutActivity : BaseActivity(),
+    CheckoutView {
+    private val presenter = CheckoutPresenter()
     private var isAuth:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

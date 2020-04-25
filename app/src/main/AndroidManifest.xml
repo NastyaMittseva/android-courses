@@ -11,14 +11,14 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".ui.CheckoutActivity" />
-        <activity android:name=".ui.BasketActivity" />
-        <activity android:name=".ui.ProductActivity" />
-        <activity android:name=".ui.CatalogActivity">
+        <activity android:name=".ui.BasketActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ProductActivity" />
+        <activity android:name=".ui.CatalogActivity" />
 
     </application>
 

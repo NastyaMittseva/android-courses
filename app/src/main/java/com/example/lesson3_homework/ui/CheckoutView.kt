@@ -1,11 +1,11 @@
-package com.example.lesson3_homework
+package com.example.lesson3_homework.ui
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy
 import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
-interface BasketView : MvpView {
+interface CheckoutView : MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun print(prices:String)
@@ -21,4 +21,5 @@ interface BasketView : MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun showErrorForPhone(visible: Boolean)
+
 }

@@ -10,4 +10,6 @@ class Product(
 ) {
     fun calcDiscountPrice(): Double = price * (1 - salePercent / 100.0)
     fun getProductName(): String = productName
+    fun getProductPrice(): Double = price
+    fun getProductSale(): Int = salePercent
 }
