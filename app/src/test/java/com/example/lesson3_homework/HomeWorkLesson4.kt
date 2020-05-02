@@ -6,7 +6,12 @@ class HomeWorkLesson4 {
     @Test
     fun example() {
 
-        val iphoneCase = Product(price = 123.0, salePercent = 10)
+        val iphoneCase = com.example.lesson3_homework.domain.model.Product(
+            id = 20,
+            price = 123.0,
+            salePercent = 10,
+            productName = "iphoneCase"
+        )
 
         val pricePrinterInRubles: PricePrinter = PricePrinterInRubles()
         val pricePrinterInDollars: PricePrinter = PricePrinterInDollars()

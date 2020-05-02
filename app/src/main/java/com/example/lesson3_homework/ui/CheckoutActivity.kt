@@ -6,8 +6,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import com.example.lesson3_homework.CheckoutPresenter
+import com.example.lesson3_homework.presenter.CheckoutPresenter
 import com.example.lesson3_homework.R
+import com.example.lesson3_homework.presenter.CheckoutView
 import com.example.lesson3_homework.ui.CatalogActivity.Companion.IS_USER_AUTH
 import com.example.lesson3_homework.ui.CatalogActivity.Companion.PRODUCT_ID
 import com.example.lesson3_homework.ui.CatalogActivity.Companion.REQUEST_AUTH
@@ -17,7 +18,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class CheckoutActivity : BaseActivity(),
     CheckoutView {
-    private val presenter = CheckoutPresenter()
+    private val presenter =
+        CheckoutPresenter()
     private var isAuth:Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +27,7 @@ class CheckoutActivity : BaseActivity(),
         presenter.attachView(this)
         setListeners()
 
-        presenter.totalPricePrint()
+//        presenter.totalPricePrint()
 
         checkoutPriceValue.text="100"
         checkoutDiscountValue.text="10"

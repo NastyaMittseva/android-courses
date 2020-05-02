@@ -1,12 +1,12 @@
 package com.example.lesson3_homework.ui
 
-import android.service.autofill.OnClickAction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lesson3_homework.R
-import kotlinx.android.synthetic.main.item_category.view.*
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_category.*
 
 class CategoryAdapter(
     private val onDeleteClick: (string: String) -> Unit
@@ -30,14 +30,12 @@ class CategoryAdapter(
         holder.bind(categories[position])
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(override val containerView: View): RecyclerView.ViewHolder(containerView), LayoutContainer {
         fun bind(text: String){
-            itemView.categoryTv.text = text
-
-            itemView.deleteIv.setOnClickListener{
+            categoryTv.text = text
+            deleteIv.setOnClickListener{
                 onDeleteClick(text)
             }
-
         }
     }
 }

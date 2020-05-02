@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.lesson3_homework.Basket
-import com.example.lesson3_homework.Product
+import com.example.lesson3_homework.domain.model.Product
 import com.example.lesson3_homework.R
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_product.*
 import kotlinx.android.synthetic.main.item_product.view.*
 
 class BasketAdapter(
-    private val onDeleteClick: (string: String) -> Unit
+    private val onDeleteClick: (productName: String) -> Unit,
+    private val onProductClick: (product: Product) -> Unit
 ): RecyclerView.Adapter<BasketAdapter.ViewHolder>() {
 
     private var products = listOf<Product>()
@@ -29,14 +31,17 @@ class BasketAdapter(
         holder.bind(products[position])
     }
 
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class ViewHolder(override val containerView: View): RecyclerView.ViewHolder(containerView), LayoutContainer{
         fun bind(product: Product) {
-            itemView.productNameTv.text = product.getProductName()
-            itemView.productDiscountTv.text = product.getProductSale().toString() + "%"
-            itemView.productPriceTv.text = "%.2f Р".format(product.getProductPrice())
+            productNameTv.text = product.productName
+            productDiscountTv.text = product.salePercent.toString() + "%"
+            productPriceTv.text = "%.2f Р".format(product.price)
 
-            itemView.deleteProductIv.setOnClickListener{
-                onDeleteClick(product.getProductName())
+            deleteProductIv.setOnClickListener{
+                onDeleteClick(product.productName)
+            }
+            containerView.setOnClickListener {
+                onProductClick(product)
             }
         }
     }

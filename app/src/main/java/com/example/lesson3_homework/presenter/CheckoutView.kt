@@ -1,4 +1,4 @@
-package com.example.lesson3_homework.ui
+package com.example.lesson3_homework.presenter
 
 import moxy.MvpView
 import moxy.viewstate.strategy.AddToEndSingleStrategy

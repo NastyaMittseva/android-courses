@@ -1,4 +1,4 @@
-package com.example.lesson3_homework
+package com.example.lesson3_homework.domain.model
 
 /*
 *  Модель для создания заказа.

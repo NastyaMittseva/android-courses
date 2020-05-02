@@ -29,6 +29,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+androidExtensions {
+    experimental = true
 }
 
 dependencies {
@@ -44,4 +51,6 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.1.0"
     implementation "com.github.moxy-community:moxy:$moxy_version"
     kapt "com.github.moxy-community:moxy-compiler:$moxy_version"
+    implementation "com.github.moxy-community:moxy-androidx:$moxy_version"
+    implementation "com.github.moxy-community:moxy-ktx:$moxy_version"
 }
