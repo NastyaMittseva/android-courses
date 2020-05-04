@@ -1,20 +1,29 @@
 package com.example.lesson3_homework.presenter
 
 import android.util.Log
+import com.example.lesson3_homework.domain.MainApi
 import com.example.lesson3_homework.domain.ViewedProductDao
 import com.example.lesson3_homework.domain.model.Product
 import moxy.InjectViewState
-import moxy.MvpPresenter
+import kotlinx.coroutines.launch
+import java.net.ConnectException
+import java.net.UnknownHostException
+
 
 @InjectViewState
 class CatalogPresenter(
+    private val mainApi: MainApi,
     private val viewedProductDao:ViewedProductDao
-): MvpPresenter<CatalogView>() {
+): BasePresenter<CatalogView>() {
     private val list = mutableListOf("Телевизоры", "Телефоны", "Планшеты", "Часы", "Компьютеры", "Ноутбуки")
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-        setData()
+        launch {
+            val remoteProducts = mainApi.allProducts("default")
+            val productNames = remoteProducts.map { remoteProduct -> remoteProduct.name }
+            viewState.setProductNames(productNames)
+        }
     }
 
     override fun attachView(view: CatalogView?) {
@@ -27,7 +36,7 @@ class CatalogPresenter(
     }
 
     fun setData(){
-        viewState.setCategories(list)
+        viewState.setProductNames(list)
     }
 
     fun removeItem(category: String){
@@ -38,5 +47,16 @@ class CatalogPresenter(
 
     fun showProductInfo(product: Product) {
         viewState.showProductInfo(product)
+    }
+
+    override fun onFailure(e: Throwable) {
+        super.onFailure(e)
+        if (e is ConnectException){
+            viewState.showError("Ошибка сети, подключитесь к интернету")
+        }
+        if (e is UnknownHostException){
+            viewState.showError("Ошибка соединения с сервером")
+        }
+
     }
 }

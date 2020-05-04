@@ -9,7 +9,7 @@ import moxy.viewstate.strategy.StateStrategyType
 interface CatalogView: MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
-    fun setCategories(list: List<String>)
+    fun setProductNames(list: List<String>)
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun setViewedProducts(products: List<Product>)
@@ -22,4 +22,7 @@ interface CatalogView: MvpView {
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun showProductInfo(product: Product)
+
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun showError(error: String)
 }

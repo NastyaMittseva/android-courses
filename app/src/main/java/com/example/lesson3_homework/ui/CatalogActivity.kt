@@ -11,16 +11,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.lesson3_homework.presenter.CatalogPresenter
 import com.example.lesson3_homework.R
 import com.example.lesson3_homework.data.ViewedProductDaoImpl
+import com.example.lesson3_homework.domain.MainApi
 import com.example.lesson3_homework.domain.model.Product
 import com.example.lesson3_homework.presenter.CatalogView
 import com.example.myapplication.ui.BaseActivity
 import kotlinx.android.synthetic.main.catalog_layout.*
+import moxy.InjectViewState
 import moxy.ktx.moxyPresenter
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class CatalogActivity: BaseActivity(),
     CatalogView {
     private val presenter by moxyPresenter {
-        CatalogPresenter(ViewedProductDaoImpl(sharedPreferences))
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://207.254.71.167:9191")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        val service = retrofit.create(MainApi::class.java)
+        CatalogPresenter(
+            mainApi = service,
+            viewedProductDao = ViewedProductDaoImpl(sharedPreferences)
+        )
     }
     private val categoryAdapter = CategoryAdapter{
             category -> presenter.removeItem(category)
@@ -66,7 +78,7 @@ class CatalogActivity: BaseActivity(),
         }
     }
 
-    override fun setCategories(list: List<String>) {
+    override fun setProductNames(list: List<String>) {
         categoryAdapter.setData(list)
     }
 
@@ -86,6 +98,10 @@ class CatalogActivity: BaseActivity(),
         startActivity(Intent(this, ProductActivity::class.java).apply {
             putExtra(ProductActivity.PRODUCT_TAG, product)
         })
+    }
+
+    override fun showError(error: String) {
+        Toast.makeText(this, error, Toast.LENGTH_LONG).show()
     }
 
     companion object{
